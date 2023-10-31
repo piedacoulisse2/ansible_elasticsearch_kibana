@@ -1,3 +1,4 @@
 user_path: /home/mmemichu/dataELK
 ELASTIC_PASSWORD: "yourpassword"
-docker_version: docker.elastic.co/elasticsearch/elasticsearch:8.10.3
+elastic_docker_version: docker.elastic.co/elasticsearch/elasticsearch:8.10.3
+kibana_docker_version: docker.elastic.co/kibana/kibana:8.10.3
