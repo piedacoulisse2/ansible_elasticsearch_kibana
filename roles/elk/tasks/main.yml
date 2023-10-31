@@ -87,13 +87,7 @@
     network_mode: elastic
     image: docker.elastic.co/kibana/kibana:8.10.3
     env:
-      #ELASTICSEARCH_HOSTS: https://elasticsearch:9200
-      #ELASTICSEARCH_USERNAME: "kibana_system"
-      #ELASTICSEARCH_PASSWORD: "yourpassword"
-      
       ELASTICSEARCH_SSL_VERIFICATIONMODE: none
-      #ELASTICSEARCH_ENROLLMENT_TOKEN: "{{ enrollment_token }}"
-      #NODE_OPTIONS: "--tls.rejectUnauthorized=false"  
     links:
       - elasticsearch
     ports:
