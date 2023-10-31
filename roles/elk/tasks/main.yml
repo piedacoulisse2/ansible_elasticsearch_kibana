@@ -1,3 +1,5 @@
+- name: Include Variables
+  ansible.builtin.include_vars: "../default/main.yml"
 
 - name: Ensure docker is installed
   apt:
