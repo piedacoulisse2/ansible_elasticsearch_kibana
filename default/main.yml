@@ -1,0 +1,3 @@
+user_path: /home/mmemichu/dataELK
+ELASTIC_PASSWORD: "yourpassword"
+docker_version: docker.elastic.co/elasticsearch/elasticsearch:8.10.3
