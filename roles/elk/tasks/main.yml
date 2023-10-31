@@ -15,7 +15,7 @@
   command:
     cmd: docker pull docker.elastic.co/elasticsearch/elasticsearch:8.10.3
 
-- name: Remove /home/mmemichu/dataELK directory
+- name: Remove /home/user/dataELK directory
   file:
     path: /home/mmemichu/dataELK
     state: absent
@@ -44,8 +44,6 @@
     name: elastic
     state: present
     
-
-
 - name: Run Elasticsearch container with custom settings
   docker_container:
     name: elasticsearch
@@ -53,7 +51,6 @@
     image: docker.elastic.co/elasticsearch/elasticsearch:8.10.3
     env:
       network.host: "0.0.0.0"
-      #network.bind_host: "192.168.0.160"
       discovery.type: single-node
       ELASTIC_PASSWORD: "yourpassword"
     ports:
