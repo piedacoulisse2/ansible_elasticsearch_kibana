@@ -15,16 +15,16 @@
 
 - name: Pull the Elasticsearch Docker image
   command:
-    cmd: docker pull docker.elastic.co/elasticsearch/elasticsearch:8.10.3
+    cmd: docker pull {{ elastic_docker_version }} #docker.elastic.co/elasticsearch/elasticsearch:8.10.3
 
 - name: Remove /home/user/dataELK directory
   file:
-    path: /home/mmemichu/dataELK
+    path: {{ user_path }} #/home/mmemichu/dataELK
     state: absent
 
 - name: Create directory for Elasticsearch data
   file:
-    path: /home/mmemichu/dataELK
+    path:  {{ user_path }} #/home/mmemichu/dataELK
     state: directory
     owner: 1000
     group: 1000
@@ -54,7 +54,7 @@
     env:
       network.host: "0.0.0.0"
       discovery.type: single-node
-      ELASTIC_PASSWORD: "yourpassword"
+      ELASTIC_PASSWORD: {{ ELASTIC_PASSWORD }} #"yourpassword"
     ports:
       - "9200:9200"
     memory: "2g"
@@ -78,7 +78,7 @@
 
 - name: Pull the Kibana Docker image
   command:
-    cmd: docker pull docker.elastic.co/kibana/kibana:8.10.3
+    cmd: docker pull {{ kibana_docker_version }} #docker.elastic.co/kibana/kibana:8.10.3
 
 - name: Run Kibana container
   docker_container:
